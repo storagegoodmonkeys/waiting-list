@@ -129,37 +129,49 @@
             text-align: center;
         }
         
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
         .service-card {
-            padding: 30px;
+            padding: 28px 24px;
             background: var(--dark-light);
             border: 1px solid var(--border);
             border-radius: 16px;
-            margin-bottom: 20px;
-            transition: border-color 0.3s ease;
+            text-align: center;
+            transition: all 0.3s ease;
         }
         
         .service-card:hover {
             border-color: var(--primary);
+            transform: translateY(-4px);
         }
         
-        .service-number {
-            font-size: 12px;
-            font-weight: 600;
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 14px;
+            margin: 0 auto 20px;
             color: var(--primary);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
         }
         
         .service-card h3 {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 12px;
+            line-height: 1.4;
         }
         
         .service-card p {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            line-height: 1.7;
+            line-height: 1.6;
         }
         
         /* Power of Done */
@@ -275,6 +287,10 @@
             .service-card h3 {
                 font-size: 1.1rem;
             }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -316,22 +332,42 @@
         <div class="services">
             <div class="services-title">What We Do</div>
             
-            <div class="service-card">
-                <div class="service-number">I.</div>
-                <h3>Digital Ventures & AI</h3>
-                <p>Building tools that simplify complexity. We leverage cutting-edge technology and AI to create products that solve real-world problems and meet market demands.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-number">II.</div>
-                <h3>Global Operations & Sourcing</h3>
-                <p>Bridging the gap in the physical world. Our operational strength lies in our ability to source, supply, and manage complex logistical needs with speed and precision.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-number">III.</div>
-                <h3>Strategic Execution</h3>
-                <p>Turning ideas into revenue. We provide the technical and operational backbone for those who have a vision but need a partner to make it happen – efficiently and without the fluff.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Digital Ventures & AI</h3>
+                    <p>Building tools that simplify complexity with cutting-edge technology and AI.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Global Operations & Sourcing</h3>
+                    <p>Bridging the gap with speed and precision in logistics and supply.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Strategic Execution</h3>
+                    <p>Turning ideas into revenue – efficiently and without the fluff.</p>
+                </div>
             </div>
         </div>
         
