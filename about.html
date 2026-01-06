@@ -175,15 +175,78 @@
         /* Philosophy */
         .philosophy {
             margin-bottom: 60px;
-            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--dark-light) 0%, rgba(20, 20, 20, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .philosophy p {
-            font-size: 1.05rem;
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), rgba(255, 107, 53, 0.3));
+        }
+        
+        .philosophy-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .philosophy-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 12px;
+            color: var(--primary);
+        }
+        
+        .philosophy-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .philosophy-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .philosophy-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .philosophy-bullet {
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-top: 8px;
+        }
+        
+        .philosophy-item p {
+            font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.9;
-            max-width: 650px;
-            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .philosophy-item p .highlight {
+            color: var(--text);
+            font-weight: 500;
         }
         
         /* Services */
@@ -348,7 +411,11 @@
                 font-size: 1.1rem;
             }
             
-            .philosophy p {
+            .philosophy {
+                padding: 24px;
+            }
+            
+            .philosophy-item p {
                 font-size: 0.95rem;
             }
             
@@ -396,9 +463,30 @@
         
         <!-- Philosophy -->
         <div class="philosophy">
-            <p>
-                At Good Monkeys LLC, we believe that the best solution isn't the one that looks most 'perfect' on paper – it's the one that actually works in the real world. We are a multidisciplinary team that thrives in the gap between 'what is' and 'what could be.' We don't limit ourselves to a single industry or a specific craft. Instead, we follow the pulse of the market. Our philosophy is simple: identify a need, find the most efficient path, and deliver results. We combine the curiosity of a startup with the grit of a global trade partner. We don't build for the gallery; we build for impact. Whether it's digital innovation or physical operations, we bring a 'Good Monkey's' resourcefulness to every challenge.
-            </p>
+            <div class="philosophy-header">
+                <div class="philosophy-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3>Our Philosophy</h3>
+            </div>
+            <div class="philosophy-content">
+                <div class="philosophy-item">
+                    <div class="philosophy-bullet"></div>
+                    <p>At Good Monkeys LLC, we believe that <span class="highlight">the best solution isn't the one that looks most 'perfect' on paper</span> – it's the one that actually works in the real world. We are a multidisciplinary team that thrives in the gap between 'what is' and 'what could be.'</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-bullet"></div>
+                    <p>We don't limit ourselves to a single industry or a specific craft. Instead, <span class="highlight">we follow the pulse of the market</span>. Our philosophy is simple: identify a need, find the most efficient path, and deliver results.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-bullet"></div>
+                    <p>We combine the curiosity of a startup with the grit of a global trade partner. <span class="highlight">We don't build for the gallery; we build for impact.</span> Whether it's digital innovation or physical operations, we bring a 'Good Monkey's' resourcefulness to every challenge.</p>
+                </div>
+            </div>
         </div>
         
         <!-- Services -->
