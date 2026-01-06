@@ -340,7 +340,7 @@
                         'apikey': SUPABASE_ANON_KEY,
                         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
                         'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
+                        'Prefer': 'return=representation'
                     },
                     body: JSON.stringify({
                         email: email,
@@ -351,13 +351,20 @@
                     })
                 });
                 
+                const result = await response.text();
+                console.log('Response:', response.status, result);
+                
+                if (!response.ok) {
+                    alert('Error: ' + result);
+                    return;
+                }
+                
                 form.style.display = 'none';
                 successMessage.classList.add('show');
                 
             } catch (error) {
                 console.error('Error:', error);
-                form.style.display = 'none';
-                successMessage.classList.add('show');
+                alert('Error: ' + error.message);
             } finally {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
