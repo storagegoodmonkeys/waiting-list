@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Good Monkeys</title>
-    <meta name="description" content="Learn more about Good Monkeys LLC - Our vision, mission, and team.">
+    <meta name="description" content="Good Monkeys LLC - A venture studio built on agility, grounded in reality.">
     
     <link rel="icon" type="image/png" href="assets/logos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,99 +81,113 @@
         /* Hero */
         .hero {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .hero h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             letter-spacing: -1px;
         }
         
-        .hero p {
+        .motto {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 500;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        /* Philosophy */
+        .philosophy {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: var(--dark-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+        
+        .philosophy p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+        
+        /* Services */
+        .services {
+            margin-bottom: 60px;
+        }
+        
+        .services-title {
             font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .service-card {
+            padding: 30px;
+            background: var(--dark-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: var(--primary);
+        }
+        
+        .service-number {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.7;
         }
         
-        /* Sections */
-        .section {
-            margin-bottom: 50px;
-        }
-        
-        .section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--primary);
-        }
-        
-        .section p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-        
-        /* Values */
-        .values {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-        
-        .value-card {
-            padding: 24px;
-            background: var(--dark-light);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+        /* Power of Done */
+        .power-done {
             text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 107, 53, 0.02));
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            margin-bottom: 40px;
         }
         
-        .value-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 12px;
-            margin: 0 auto 16px;
+        .power-done h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
             color: var(--primary);
         }
         
-        .value-card h3 {
+        .power-done p {
             font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .value-card p {
-            font-size: 0.9rem;
             color: var(--text-muted);
-            margin: 0;
+            line-height: 1.7;
         }
         
         /* CTA */
         .cta {
             text-align: center;
-            padding: 40px;
-            background: var(--dark-light);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            margin-top: 60px;
-        }
-        
-        .cta h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-        
-        .cta p {
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-top: 50px;
         }
         
         .cta-btn {
@@ -246,16 +260,20 @@
                 font-size: 1.8rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .motto {
+                font-size: 1.1rem;
             }
             
-            .section h2 {
-                font-size: 1.3rem;
+            .philosophy {
+                padding: 24px;
             }
             
-            .values {
-                grid-template-columns: 1fr;
+            .service-card {
+                padding: 24px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -275,74 +293,57 @@
     <div class="container">
         <!-- Hero -->
         <div class="hero">
-            <h1>About Good Monkeys</h1>
-            <p>We're building innovative solutions that connect communities and create meaningful experiences.</p>
+            <h1>About Us</h1>
+            <p class="motto">"A venture studio built on agility, grounded in reality. We don't just ideate, we execute whatever the market demands."</p>
         </div>
         
-        <!-- Mission -->
-        <div class="section">
-            <h2>Our Mission</h2>
+        <!-- Philosophy -->
+        <div class="philosophy">
             <p>
-                At Good Monkeys, we believe in the power of connection. Our mission is to create platforms 
-                that bring people together, foster communities, and make everyday experiences more enjoyable.
+                At Good Monkeys LLC, we believe that the best solution isn't the one that looks most 'perfect' on paper – it's the one that actually works in the real world. We are a multidisciplinary team that thrives in the gap between 'what is' and 'what could be.'
             </p>
+            <br>
             <p>
-                We're passionate about building products that matter - solutions that solve real problems 
-                and add genuine value to people's lives.
+                We don't limit ourselves to a single industry or a specific craft. Instead, we follow the pulse of the market. Our philosophy is simple: identify a need, find the most efficient path, and deliver results.
             </p>
-        </div>
-        
-        <!-- Vision -->
-        <div class="section">
-            <h2>Our Vision</h2>
+            <br>
             <p>
-                We envision a world where technology enhances human connection rather than replacing it. 
-                Where communities thrive, collectors connect, and every interaction is meaningful.
+                We combine the curiosity of a startup with the grit of a global trade partner. We don't build for the gallery; we build for impact. Whether it's digital innovation or physical operations, we bring a 'Good Monkey's' resourcefulness to every challenge.
             </p>
         </div>
         
-        <!-- Values -->
-        <div class="section">
-            <h2>Our Values</h2>
-            <div class="values">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <h3>Community First</h3>
-                    <p>Building for people, not just users</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
-                        </svg>
-                    </div>
-                    <h3>Quality</h3>
-                    <p>Excellence in everything we create</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3>Trust</h3>
-                    <p>Transparency and integrity always</p>
-                </div>
+        <!-- Services -->
+        <div class="services">
+            <div class="services-title">What We Do</div>
+            
+            <div class="service-card">
+                <div class="service-number">I.</div>
+                <h3>Digital Ventures & AI</h3>
+                <p>Building tools that simplify complexity. We leverage cutting-edge technology and AI to create products that solve real-world problems and meet market demands.</p>
             </div>
+            
+            <div class="service-card">
+                <div class="service-number">II.</div>
+                <h3>Global Operations & Sourcing</h3>
+                <p>Bridging the gap in the physical world. Our operational strength lies in our ability to source, supply, and manage complex logistical needs with speed and precision.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-number">III.</div>
+                <h3>Strategic Execution</h3>
+                <p>Turning ideas into revenue. We provide the technical and operational backbone for those who have a vision but need a partner to make it happen – efficiently and without the fluff.</p>
+            </div>
+        </div>
+        
+        <!-- Power of Done -->
+        <div class="power-done">
+            <h3>The Power of 'Done'</h3>
+            <p>We get a thrill from seeing a task completed and a problem solved. For us, execution is the highest form of creativity.</p>
         </div>
         
         <!-- CTA -->
         <div class="cta">
-            <h3>Get in Touch</h3>
-            <p>Have questions or want to learn more? We'd love to hear from you.</p>
-            <a href="index.html" class="cta-btn">Contact Us</a>
+            <a href="index.html" class="cta-btn">Get in Touch</a>
         </div>
         
         <!-- Footer -->
@@ -359,4 +360,3 @@
     </div>
 </body>
 </html>
-
