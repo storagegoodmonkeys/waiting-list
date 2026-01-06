@@ -197,39 +197,30 @@
             overflow: hidden;
         }
         
-        .philosophy::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), rgba(255, 107, 53, 0.3));
-        }
-        
         .philosophy-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 24px;
+            text-align: center;
+            margin-bottom: 28px;
         }
         
-        .philosophy-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 12px;
-            color: var(--primary);
+        .philosophy-stamp {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px;
+        }
+        
+        .philosophy-stamp img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.9;
         }
         
         .philosophy-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .philosophy-content {
@@ -482,11 +473,8 @@
         <!-- Philosophy -->
         <div class="philosophy">
             <div class="philosophy-header">
-                <div class="philosophy-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                    </svg>
+                <div class="philosophy-stamp">
+                    <img src="assets/logos/GoodMonkeys_Logo_GM_V01_Logomark.png" alt="GM">
                 </div>
                 <h3>Our Philosophy</h3>
             </div>
