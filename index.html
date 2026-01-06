@@ -432,13 +432,13 @@
             submitBtn.disabled = true;
             
             try {
-                await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
                     method: 'POST',
                     headers: {
                         'apikey': SUPABASE_ANON_KEY,
                         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
                         'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
+                        'Prefer': 'return=representation'
                     },
                     body: JSON.stringify({
                         email: email,
@@ -449,13 +449,23 @@
                     })
                 });
                 
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Supabase error:', errorData);
+                    throw new Error(errorData.message || 'Failed to save');
+                }
+                
+                const data = await response.json();
+                console.log('Saved successfully:', data);
+                
                 form.style.display = 'none';
                 successMessage.classList.add('show');
                 
             } catch (error) {
                 console.error('Error:', error);
-                form.style.display = 'none';
-                successMessage.classList.add('show');
+                alert('Something went wrong. Please try again.');
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
             } finally {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
