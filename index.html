@@ -452,6 +452,12 @@
                 if (!response.ok) {
                     const errorData = await response.json();
                     console.error('Supabase error:', errorData);
+                    // Handle duplicate email
+                    if (errorData.code === '23505') {
+                        form.style.display = 'none';
+                        successMessage.classList.add('show');
+                        return;
+                    }
                     throw new Error(errorData.message || 'Failed to save');
                 }
                 
