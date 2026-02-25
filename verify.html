@@ -331,7 +331,7 @@
                 <h1>Email Verified!</h1>
                 <p class="subtitle">Your email has been verified. You can now open the Flick app and sign in.</p>
                 <div class="buttons">
-                    <a href="flickapp://" class="btn">Open Flick App</a>
+                    <a href="flickapp://" class="btn" id="open-app-btn">Open Flick App</a>
                     <a href="index.html" class="btn btn-outline">Back to Home</a>
                 </div>
             </div>
@@ -363,40 +363,64 @@
         const SUPABASE_URL = 'https://gnzrcanlxueqffcdiykl.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduenJjYW5seHVlcWZmY2RpeWtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwMzU2NTcsImV4cCI6MjA4NzYxMTY1N30.JP1t2iZAKfw8O2GtOo1fwwE3Eobvj-IEV9USpeMhpsA';
 
-        async function verifyEmail() {
-            const params = new URLSearchParams(window.location.search);
-            const tokenHash = params.get('token_hash');
-            const type = params.get('type');
+        async function handleVerification() {
+            const queryParams = new URLSearchParams(window.location.search);
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
 
-            if (!tokenHash || !type) {
-                showError('Missing verification parameters. Please use the link from your email.');
+            const accessToken = hashParams.get('access_token');
+            const refreshToken = hashParams.get('refresh_token');
+            const tokenHash = queryParams.get('token_hash');
+            const type = queryParams.get('type') || hashParams.get('type');
+
+            // Flow 2: Supabase implicit redirect — tokens already in URL hash
+            if (accessToken) {
+                const deepLink = `flickapp://auth?access_token=${encodeURIComponent(accessToken)}&refresh_token=${encodeURIComponent(refreshToken || '')}&type=${encodeURIComponent(type || 'signup')}`;
+                updateDeepLink(deepLink);
+                showSuccess();
                 return;
             }
 
-            try {
-                const response = await fetch(`${SUPABASE_URL}/auth/v1/verify`, {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        token_hash: tokenHash,
-                        type: type
-                    })
-                });
+            // Flow 1: PKCE — token_hash in query params, verify via API
+            if (tokenHash && type) {
+                try {
+                    const response = await fetch(`${SUPABASE_URL}/auth/v1/verify`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            token_hash: tokenHash,
+                            type: type
+                        })
+                    });
 
-                if (response.ok) {
-                    showSuccess();
-                } else {
-                    const data = await response.json();
-                    console.error('Verification error:', data);
-                    showError(data.error_description || data.msg || 'Verification failed. The link may have expired. Please try again.');
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.access_token) {
+                            const deepLink = `flickapp://auth?access_token=${encodeURIComponent(data.access_token)}&refresh_token=${encodeURIComponent(data.refresh_token || '')}&type=${encodeURIComponent(type)}`;
+                            updateDeepLink(deepLink);
+                        }
+                        showSuccess();
+                    } else {
+                        const data = await response.json();
+                        console.error('Verification error:', data);
+                        showError(data.error_description || data.msg || 'Verification failed. The link may have expired. Please try again.');
+                    }
+                } catch (err) {
+                    console.error('Network error:', err);
+                    showError('Could not reach the server. Please check your connection and try again.');
                 }
-            } catch (err) {
-                console.error('Network error:', err);
-                showError('Could not reach the server. Please check your connection and try again.');
+                return;
             }
+
+            // No valid params found
+            showError('Missing verification parameters. Please use the link from your email.');
+        }
+
+        function updateDeepLink(url) {
+            const btn = document.getElementById('open-app-btn');
+            if (btn) btn.href = url;
         }
 
         function showSuccess() {
@@ -412,7 +436,7 @@
             }
         }
 
-        verifyEmail();
+        handleVerification();
     </script>
 </body>
 </html>
