@@ -10,8 +10,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#170F09">
 <link rel="canonical" href="https://www.goodmonkeys.com/">
-<link rel="icon" href="assets/logomark-cream.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/logomark-cream.svg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
 <!-- Open Graph / social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Good Monkeys">
@@ -368,7 +368,8 @@
       <p style="margin-top: 26px; font-size: clamp(16px,1.5vw,19px); line-height: 1.4; color: rgba(243,237,225,.66); max-width: 56ch">We have spent a while quietly building our first two mobile apps for iOS and Android. Both are now approaching launch, and both are being made with the same care we would want as users&nbsp;ourselves.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,32px)">
-      <div data-reveal="" style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(243,237,225,.12);background:radial-gradient(120% 90% at 85% 0%,rgba(242,217,138,.14),transparent 60%),#1B120B">
+      <div data-reveal="" style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(243,237,225,.12);background:radial-gradient(120% 90% at 85% 0%,rgba(242,217,138,.14),transparent 60%),#1B120B;position:relative;cursor:pointer">
+        <a href="https://marklings.com" target="_blank" rel="noopener" aria-label="Open the Marklings website" style="position:absolute;inset:0;z-index:3"></a>
         <div style="position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(243,237,225,.1)">
           <img src="assets/images/marklings-ai-translation-app.jpg" alt="Marklings logo — an AI-powered translation app by Good Monkeys" title="Marklings — yapay zeka destekli çeviri uygulaması" width="1337" height="784" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
@@ -379,6 +380,7 @@
           </div>
           <p style="font-size: 15.5px; line-height: 1.4; color: rgba(243,237,225,.7)">An AI-powered translation app that lets you mark, capture and save the language you need, exactly when you need&nbsp;it.</p>
           <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">iOS &amp; Android</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">Translation</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">Capture</span><span style="font-size:12.5px;color:rgba(242,217,138,.95);border:1px solid rgba(242,217,138,.35);padding:6px 13px;border-radius:100px">On-device</span></div>
+          <div style="margin-top:2px;font-size:13.5px;color:rgba(242,217,138,.95);display:inline-flex;align-items:center;gap:6px;position:relative;z-index:2;pointer-events:none">Visit marklings.com <span aria-hidden="true">↗</span></div>
         </div>
       </div>
       <div data-reveal="" style="display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid rgba(243,237,225,.12);background:radial-gradient(120% 90% at 85% 0%,rgba(232,168,121,.16),transparent 60%),#1B120B">
@@ -494,14 +496,14 @@
     </div><form data-reveal="" style="display:flex;flex-direction:column;gap:20px;border:1px solid rgba(243,237,225,.12);border-radius:20px;padding:clamp(26px,3vw,40px);background:#1B120B">
       <div style="display:flex;flex-direction:column;gap:9px">
         <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: #EFE7D880; font-weight: 600">Your name</label>
-        <input type="text" placeholder="John Smith" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
+        <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="John Smith" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
       </div>
       <div style="display:flex;flex-direction:column;gap:9px">
         <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">Email</label>
-        <input type="email" placeholder="you@company.com" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
+        <input type="email" id="cf-email" name="email" autocomplete="email" required placeholder="you@company.com" style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none">
       </div>
       <div style="display: flex; flex-direction: column; gap: 9px; position: relative">
-        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">The problem worth solving</label><textarea rows="3" placeholder="Tell us what you're chasing..." style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none;resize:none"></textarea>
+        <label style="font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,237,225,.5); font-weight: 600">The problem worth solving</label><textarea rows="3" id="cf-message" name="message" placeholder="Tell us what you're chasing..." style="background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,.22);padding:11px 2px;font-size:16px;outline:none;resize:none"></textarea>
         
       </div>
       <button type="submit" style="margin-top:10px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border:none;border-radius:100px;background:#C3D866;color:#1E2A08;font-weight:500;font-size:15px;cursor:pointer">Send it our way <span>→</span></button>
@@ -646,13 +648,43 @@
       }
     }
 
-    // Contact form: friendly inline confirmation (no backend wired).
+    // Contact form: real submission to the /api/contact serverless function
+    // (stores name/email/message in Supabase). Shows inline status.
     var form = document.querySelector('#contact form');
     if (form) {
+      var status = document.createElement('p');
+      status.setAttribute('role', 'status');
+      status.style.cssText = 'margin-top:14px;font-size:14px;line-height:1.5';
+      form.appendChild(status);
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var btn = form.querySelector('button[type=submit]');
-        if (btn) { btn.textContent = 'Thanks, we’ll be in touch ✓'; btn.style.background = '#C3D18A'; }
+        var name = (document.getElementById('cf-name') || {}).value || '';
+        var email = (document.getElementById('cf-email') || {}).value || '';
+        var message = (document.getElementById('cf-message') || {}).value || '';
+        if (!name.trim() || !email.trim()) {
+          status.style.color = 'rgba(243,237,225,.72)';
+          status.textContent = 'Please add your name and email.';
+          return;
+        }
+        var original = btn ? btn.innerHTML : '';
+        if (btn) { btn.disabled = true; btn.style.opacity = '.75'; btn.textContent = 'Sending…'; }
+        status.textContent = '';
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() })
+        }).then(function (r) {
+          if (!r.ok) throw new Error('status ' + r.status);
+          if (btn) { btn.textContent = 'Thanks, we’ll be in touch ✓'; btn.style.background = '#C3D18A'; btn.style.opacity = '1'; }
+          status.style.color = '#C3D866';
+          status.textContent = 'Message sent. We’ll get back to you soon.';
+          form.reset();
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = original; }
+          status.style.color = '#F0A98F';
+          status.innerHTML = 'Couldn’t send right now — please email <a href="mailto:info@goodmonkeys.com" style="color:inherit;text-decoration:underline">info@goodmonkeys.com</a>.';
+        });
       });
     }
   }
