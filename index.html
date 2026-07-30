@@ -59,6 +59,20 @@
      hero (whose large intro keeps its tighter display spacing). */
   section:not(#top) p{line-height:1.6 !important}
   #contact p,#projects p{line-height:1.55 !important}
+  /* Contact form sits on a dark card: keep typed text, caret and placeholder
+     readable, and stop the browser's autofill from forcing a light box. */
+  #contact input,#contact textarea{color:#F3EDE1;caret-color:#C3D866}
+  #contact input::placeholder,#contact textarea::placeholder{color:rgba(243,237,225,.4)}
+  #contact input:-webkit-autofill,
+  #contact input:-webkit-autofill:hover,
+  #contact input:-webkit-autofill:focus,
+  #contact textarea:-webkit-autofill{
+    -webkit-text-fill-color:#F3EDE1;
+    caret-color:#C3D866;
+    -webkit-box-shadow:0 0 0 1000px #1B120B inset;
+    box-shadow:0 0 0 1000px #1B120B inset;
+    transition:background-color 9999s ease-in-out 0s;
+  }
   @keyframes gm-rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
   @keyframes gm-float-a{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-5%) scale(1.08)}}
   @keyframes gm-float-b{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7%,6%) scale(1.12)}}
