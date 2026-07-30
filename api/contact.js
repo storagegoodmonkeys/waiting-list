@@ -1,7 +1,7 @@
 // Contact form endpoint -> stores submissions in Supabase (contact_messages table).
 // Uses the same public anon key as the waitlist function.
 const SUPABASE_URL = 'https://kjhhwrvduqxprweqxhbo.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtqaGh3cnZkdXF4cHJ3ZXF4aGJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzQzMTUsImV4cCI6MjA0ODExMDMxNX0.sKhLhRNVJdOLOqGG7PcHjryi3WJeagX0BnT0L32H2lA';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtqaGh3cnZkdXF4cHJ3ZXF4aGJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2OTAwNjIsImV4cCI6MjA4MDI2NjA2Mn0.GFAmIDb1E_2UnFczUsHv4mTwGCT057CNlSLatsP2g2w';
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
